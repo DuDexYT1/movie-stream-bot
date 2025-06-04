@@ -29,9 +29,8 @@ bot.on('message', async (msg) => {
     bot.sendMessage(chatId, `🎥 *${name}*\n📦 Size: ${sizeMB} MB\n\n▶️ Stream link:\n${fileUrl}`, {
       parse_mode: 'Markdown',
       disable_web_page_preview: true
-    });
+    }); 
   } catch (error) {
-    console.error(error);
-    bot.sendMessage(chatId, '⚠️ Error generating stream link, try again.');
-  }
-});
+  bot.sendMessage(chatId, `❌ Error: ${error.message || error.toString()}`);
+  console.error("Telegram file fetch error:", error);
+}
