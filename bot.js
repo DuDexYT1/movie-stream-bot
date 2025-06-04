@@ -30,6 +30,7 @@ bot.on('message', async (msg) => {
       parse_mode: 'Markdown',
       disable_web_page_preview: true
     }); 
+    
   } catch (error) {
   bot.sendMessage(chatId, `❌ Error: ${error.message || error.toString()}`);
   console.error("Telegram file fetch error:", error);
